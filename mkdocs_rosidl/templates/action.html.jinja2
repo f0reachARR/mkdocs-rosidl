@@ -1,0 +1,89 @@
+# {{ interface_package }}/{{ interface_name }} {{ type }}
+
+**File:** `{{ interface_package }}/{{ interface_name }}.{{ ext }}`
+
+## Raw Action Definition
+
+```
+{% for line in raw_text.splitlines() -%}
+{{ line }}
+{% endfor -%}
+```
+
+## Compact Action Definition
+
+### Goal
+
+{% if constant_types_goal and constant_names_goal -%}
+**Constants:**
+
+{% for i in range(constant_types_goal|length) -%}
+- `{{ constant_types_goal[i] }} {{ constant_names_goal[i] }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types_goal and field_names_goal -%}
+{% for i in range(field_types_goal|length) -%}
+{% if relative_paths_goal[i] -%}
+- [`{{ field_types_goal[i] }}`](../../{{ relative_paths_goal[i] }}) `{{ field_names_goal[i] }}{{ field_default_values_goal[i] }}`
+{% else -%}
+- `{{ field_types_goal[i] }}` `{{ field_names_goal[i] }}{{ field_default_values_goal[i] }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+### Result
+
+{% if constant_types_result and constant_names_result -%}
+**Constants:**
+
+{% for i in range(constant_types_result|length) -%}
+- `{{ constant_types_result[i] }} {{ constant_names_result[i] }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types_result and field_names_result -%}
+{% for i in range(field_types_result|length) -%}
+{% if relative_paths_result[i] -%}
+- [`{{ field_types_result[i] }}`](../../{{ relative_paths_result[i] }}) `{{ field_names_result[i] }}{{ field_default_values_result[i] }}`
+{% else -%}
+- `{{ field_types_result[i] }}` `{{ field_names_result[i] }}{{ field_default_values_result[i] }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+### Feedback
+
+{% if constant_types_feedback and constant_names_feedback -%}
+**Constants:**
+
+{% for i in range(constant_types_feedback|length) -%}
+- `{{ constant_types_feedback[i] }} {{ constant_names_feedback[i] }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types_feedback and field_names_feedback -%}
+{% for i in range(field_types_feedback|length) -%}
+{% if relative_paths_feedback[i] -%}
+- [`{{ field_types_feedback[i] }}`](../../{{ relative_paths_feedback[i] }}) `{{ field_names_feedback[i] }}{{ field_default_values_feedback[i] }}`
+{% else -%}
+- `{{ field_types_feedback[i] }}` `{{ field_names_feedback[i] }}{{ field_default_values_feedback[i] }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+---
+
+*Generated on {{ timestamp }}*
