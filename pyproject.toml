@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs-rosidl"
+version = "0.1.0"
+description = "MkDocs plugin for generating ROS2 interface documentation"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "mkdocs-rosidl contributors"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "mkdocs>=1.0",
+    "jinja2>=2.11",
+    "rosidl-runtime-py",
+    "rosidl-parser",
+    "ament-index-python",
+]
+
+[project.urls]
+Homepage = "https://github.com/f0reachARR/mkdocs-rosidl"
+Repository = "https://github.com/f0reachARR/mkdocs-rosidl"
+
+[project.entry-points."mkdocs.plugins"]
+rosidl = "mkdocs_rosidl.plugin:RosidlPlugin"
+
+[tool.setuptools.packages.find]
+include = ["mkdocs_rosidl*"]
+
+[tool.setuptools.package-data]
+mkdocs_rosidl = ["templates/*"]
