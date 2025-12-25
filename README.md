@@ -45,6 +45,8 @@ plugins:
       output_dir: interfaces  # Optional, defaults to 'interfaces'
 ```
 
+For detailed usage instructions, examples, and best practices, see [USAGE.md](USAGE.md).
+
 #### Configuration Options
 
 - `packages`: List of ROS2 packages to generate documentation for. If empty, all available packages will be documented.
@@ -134,6 +136,8 @@ plugins:
         - sensor_msgs
       output_dir: interfaces  # オプション、デフォルトは'interfaces'
 ```
+
+詳細な使用方法、例、ベストプラクティスについては、[USAGE.md](USAGE.md)を参照してください。
 
 #### 設定オプション
 
