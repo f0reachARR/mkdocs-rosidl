@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+recursive-include mkdocs_rosidl/templates *.jinja2 *.css

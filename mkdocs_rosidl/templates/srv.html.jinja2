@@ -17,19 +17,19 @@
 {% if constant_types_request and constant_names_request -%}
 **Constants:**
 
-{% for constant_type, constant_name in zip(constant_types_request, constant_names_request) -%}
-- `{{ constant_type }} {{ constant_name }}`
+{% for i in range(constant_types_request|length) -%}
+- `{{ constant_types_request[i] }} {{ constant_names_request[i] }}`
 {% endfor %}
 
 {% endif -%}
 **Fields:**
 
 {% if field_types_request and field_names_request -%}
-{% for relative_path, field_type, field_name, default_value in zip(relative_paths_request, field_types_request, field_names_request, field_default_values_request) -%}
-{% if relative_path -%}
-- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% for i in range(field_types_request|length) -%}
+{% if relative_paths_request[i] -%}
+- [`{{ field_types_request[i] }}`](../../{{ relative_paths_request[i] }}) `{{ field_names_request[i] }}{{ field_default_values_request[i] }}`
 {% else -%}
-- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+- `{{ field_types_request[i] }}` `{{ field_names_request[i] }}{{ field_default_values_request[i] }}`
 {% endif -%}
 {% endfor -%}
 {% else -%}
@@ -41,19 +41,19 @@
 {% if constant_types_response and constant_names_response -%}
 **Constants:**
 
-{% for constant_type, constant_name in zip(constant_types_response, constant_names_response) -%}
-- `{{ constant_type }} {{ constant_name }}`
+{% for i in range(constant_types_response|length) -%}
+- `{{ constant_types_response[i] }} {{ constant_names_response[i] }}`
 {% endfor %}
 
 {% endif -%}
 **Fields:**
 
 {% if field_types_response and field_names_response -%}
-{% for relative_path, field_type, field_name, default_value in zip(relative_paths_response, field_types_response, field_names_response, field_default_values_response) -%}
-{% if relative_path -%}
-- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% for i in range(field_types_response|length) -%}
+{% if relative_paths_response[i] -%}
+- [`{{ field_types_response[i] }}`](../../{{ relative_paths_response[i] }}) `{{ field_names_response[i] }}{{ field_default_values_response[i] }}`
 {% else -%}
-- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+- `{{ field_types_response[i] }}` `{{ field_names_response[i] }}{{ field_default_values_response[i] }}`
 {% endif -%}
 {% endfor -%}
 {% else -%}

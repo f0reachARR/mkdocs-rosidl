@@ -15,19 +15,19 @@
 {% if constant_types and constant_names -%}
 **Constants:**
 
-{% for constant_type, constant_name in zip(constant_types, constant_names) -%}
-- `{{ constant_type }} {{ constant_name }}`
+{% for i in range(constant_types|length) -%}
+- `{{ constant_types[i] }} {{ constant_names[i] }}`
 {% endfor %}
 
 {% endif -%}
 **Fields:**
 
 {% if field_types and field_names -%}
-{% for relative_path, field_type, field_name, default_value in zip(relative_paths, field_types, field_names, field_default_values) -%}
-{% if relative_path -%}
-- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% for i in range(field_types|length) -%}
+{% if relative_paths[i] -%}
+- [`{{ field_types[i] }}`](../../{{ relative_paths[i] }}) `{{ field_names[i] }}{{ field_default_values[i] }}`
 {% else -%}
-- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+- `{{ field_types[i] }}` `{{ field_names[i] }}{{ field_default_values[i] }}`
 {% endif -%}
 {% endfor -%}
 {% else -%}
