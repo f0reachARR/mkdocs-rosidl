@@ -25,6 +25,9 @@ from rosidl_parser.definition import (
 )
 from rosidl_runtime_py import get_interface_path
 
+# Magic field name that should be skipped in documentation
+SKIP_FIELD_NAME = 'structure_needs_at_least_one_member'
+
 
 def resource_name(resource):
     """
@@ -172,9 +175,9 @@ def generate_compact_definition(imported_interface, indent=0):
             type_field, link = get_field_type_and_link(field)
         elif isinstance(field.type.value_type, Array):
             if field.type.value_type.has_maximum_size():
-                array_definition_str = '[]'
+                array_definition_str = '[' + str(field.type.value_type.size) + ']'
             else:
-                array_definition_str = '[' + field.type.value_type.maximum_size + ']'
+                array_definition_str = '[]'
         elif isinstance(field.type.value_type, AbstractString):
             type_field = 'string'
             if isinstance(field.type, BoundedString):
@@ -185,7 +188,7 @@ def generate_compact_definition(imported_interface, indent=0):
         else:
             type_field = str(field.type.value_type.typename)
         
-        if field.name != 'structure_needs_at_least_one_member':
+        if field.name != SKIP_FIELD_NAME:
             compact['relative_paths'].append(link)
             compact['field_types'].append(type_field + array_definition_str)
             compact['field_names'].append(field.name)
