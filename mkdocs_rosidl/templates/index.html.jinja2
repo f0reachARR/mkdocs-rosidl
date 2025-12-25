@@ -1,0 +1,30 @@
+# {{ package }} Interface Documentation
+
+{% if msg_list -%}
+## Messages
+
+{% for msg in msg_list -%}
+- [{{ msg }}]({{ msg }}.md)
+{% endfor %}
+
+{% endif -%}
+{% if srv_list -%}
+## Services
+
+{% for srv in srv_list -%}
+- [{{ srv }}]({{ srv }}.md)
+{% endfor %}
+
+{% endif -%}
+{% if action_list -%}
+## Actions
+
+{% for action in action_list -%}
+- [{{ action }}]({{ action }}.md)
+{% endfor %}
+
+{% endif -%}
+
+---
+
+*Generated on {{ timestamp }}*

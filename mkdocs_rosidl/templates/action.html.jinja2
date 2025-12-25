@@ -1,0 +1,89 @@
+# {{ interface_package }}/{{ interface_name }} {{ type }}
+
+**File:** `{{ interface_package }}/{{ interface_name }}.{{ ext }}`
+
+## Raw Action Definition
+
+```
+{% for line in raw_text.splitlines() -%}
+{{ line }}
+{% endfor -%}
+```
+
+## Compact Action Definition
+
+### Goal
+
+{% if constant_types_goal and constant_names_goal -%}
+**Constants:**
+
+{% for constant_type, constant_name in zip(constant_types_goal, constant_names_goal) -%}
+- `{{ constant_type }} {{ constant_name }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types_goal and field_names_goal -%}
+{% for relative_path, field_type, field_name, default_value in zip(relative_paths_goal, field_types_goal, field_names_goal, field_default_values_goal) -%}
+{% if relative_path -%}
+- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% else -%}
+- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+### Result
+
+{% if constant_types_result and constant_names_result -%}
+**Constants:**
+
+{% for constant_type, constant_name in zip(constant_types_result, constant_names_result) -%}
+- `{{ constant_type }} {{ constant_name }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types_result and field_names_result -%}
+{% for relative_path, field_type, field_name, default_value in zip(relative_paths_result, field_types_result, field_names_result, field_default_values_result) -%}
+{% if relative_path -%}
+- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% else -%}
+- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+### Feedback
+
+{% if constant_types_feedback and constant_names_feedback -%}
+**Constants:**
+
+{% for constant_type, constant_name in zip(constant_types_feedback, constant_names_feedback) -%}
+- `{{ constant_type }} {{ constant_name }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types_feedback and field_names_feedback -%}
+{% for relative_path, field_type, field_name, default_value in zip(relative_paths_feedback, field_types_feedback, field_names_feedback, field_default_values_feedback) -%}
+{% if relative_path -%}
+- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% else -%}
+- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+---
+
+*Generated on {{ timestamp }}*

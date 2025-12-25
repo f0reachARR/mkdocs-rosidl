@@ -1,0 +1,39 @@
+# {{ interface_package }}/{{ interface_name }} {{ type }}
+
+**File:** `{{ interface_package }}/{{ interface_name }}.{{ ext }}`
+
+## Raw Message Definition
+
+```
+{% for line in raw_text.splitlines() -%}
+{{ line }}
+{% endfor -%}
+```
+
+## Compact Message Definition
+
+{% if constant_types and constant_names -%}
+**Constants:**
+
+{% for constant_type, constant_name in zip(constant_types, constant_names) -%}
+- `{{ constant_type }} {{ constant_name }}`
+{% endfor %}
+
+{% endif -%}
+**Fields:**
+
+{% if field_types and field_names -%}
+{% for relative_path, field_type, field_name, default_value in zip(relative_paths, field_types, field_names, field_default_values) -%}
+{% if relative_path -%}
+- [`{{ field_type }}`](../../{{ relative_path }}) `{{ field_name }}{{ default_value }}`
+{% else -%}
+- `{{ field_type }}` `{{ field_name }}{{ default_value }}`
+{% endif -%}
+{% endfor -%}
+{% else -%}
+*No fields*
+{% endif %}
+
+---
+
+*Generated on {{ timestamp }}*

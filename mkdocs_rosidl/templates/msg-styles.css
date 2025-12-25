@@ -1,0 +1,33 @@
+/* Message-specific styles for ROS2 interface documentation */
+.msg-title {
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.raw-msg {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-left: 4px solid #0066cc;
+    margin: 15px 0;
+}
+
+.compact_definition-msg {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-left: 4px solid #4CAF50;
+    margin: 15px 0;
+}
+
+.comment-text {
+    color: #666;
+    font-style: italic;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: 0.9em;
+}

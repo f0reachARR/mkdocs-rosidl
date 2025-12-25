@@ -1,0 +1,20 @@
+site_name: ROS2 Interface Documentation Example
+site_description: Example documentation using mkdocs-rosidl plugin
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - rosidl:
+      packages:
+        # Add your ROS2 packages here
+        # Example:
+        # - std_msgs
+        # - geometry_msgs
+        # - sensor_msgs
+      output_dir: interfaces
+
+nav:
+  - Home: index.md
+  - Interfaces: interfaces/
